@@ -28,3 +28,12 @@ func BuscarPesquisa(id uint64) model.Pesquisa {
 	}
 	return model.Pesquisa{} // retorna uma pesquisa vazia
 }
+
+// ResponderPesquisa: responde a pesquisa
+func ResponderPesquisa(id, nota uint64) {
+	for i, pesquisa := range model.Pesquisas {
+		if pesquisa.Id == id {
+			model.Pesquisas[i].Nota = uint(nota)
+		}
+	}
+}
