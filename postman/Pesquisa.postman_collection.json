@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "ae862bad-7ed1-4ad8-82cb-1399adda4db8",
+		"name": "Pesquisa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18232566"
+	},
+	"item": [
+		{
+			"name": "BuscarPesquisa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/pesquisa/buscar/responder/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"pesquisa",
+						"buscar",
+						"responder",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Form Pesquisa",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/pesquisa/responder/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"pesquisa",
+						"responder",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Responder Pesquisa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nota\":5\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/pesquisa/responder/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"pesquisa",
+						"responder",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

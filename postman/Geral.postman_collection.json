@@ -1,0 +1,29 @@
+{
+	"info": {
+		"_postman_id": "58ef5581-26d2-4435-83d2-0fed989a817b",
+		"name": "Geral",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18232566"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8000/teste",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/teste",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"teste"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
