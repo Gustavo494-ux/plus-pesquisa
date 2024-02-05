@@ -33,3 +33,16 @@ func VerificarSePesquisaRespondida(next echo.HandlerFunc) echo.HandlerFunc {
 		return next(c)
 	}
 }
+
+/*Implementação do middleware acima com o hash do id ao invez do id*/
+func VerificarSePesquisaRespondida_Hash(next echo.HandlerFunc) echo.HandlerFunc {
+	return func(c echo.Context) error {
+		idPesquisaHash := c.Param("id_hash") //recuperação do parametro da url "id" e conversão dele para int
+
+		if repository.VerificarSePesquisaRespondidaHash(idPesquisaHash) {
+			return c.JSON(http.StatusForbidden, "está pesquisa já foi respondida")
+		}
+
+		return next(c)
+	}
+}

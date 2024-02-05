@@ -1,9 +1,10 @@
 package model
 
 type Pesquisa struct {
-	Id    uint64
-	Email string
-	Nota  uint
+	Id      uint64
+	Id_Hash string
+	Email   string
+	Nota    uint
 }
 
 // mock dos dados, assim irei evitar de complicar essa prova de conceito com a utilizaçãop de um banco de dados

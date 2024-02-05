@@ -37,3 +37,35 @@ func ResponderPesquisa(id, nota uint64) {
 		}
 	}
 }
+
+/*******************************************Implementação das funções acima porem com o hash do id ao invez do id***********************************************/
+// VerificarSePesquisaRespondidaHash: verifica no banco se a pesquisa foi respondida utilizando o hash do id
+func VerificarSePesquisaRespondidaHash(Id_Hash string) bool {
+	for _, pesquisa := range model.Pesquisas {
+		if pesquisa.Id_Hash == Id_Hash {
+			if pesquisa.Nota > 0 {
+				return true
+			}
+		}
+	}
+	return false
+}
+
+// BuscarPesquisaHash: busca os dados da pesquisa utilizando o hash do id
+func BuscarPesquisaHash(Id_Hash string) model.Pesquisa {
+	for _, pesquisa := range model.Pesquisas {
+		if pesquisa.Id_Hash == Id_Hash {
+			return pesquisa
+		}
+	}
+	return model.Pesquisa{} // retorna uma pesquisa vazia
+}
+
+// ResponderPesquisaHash: responde a pesquisa utilizando o hash do id
+func ResponderPesquisaHash(Id_Hash string, nota uint64) {
+	for i, pesquisa := range model.Pesquisas {
+		if pesquisa.Id_Hash == Id_Hash {
+			model.Pesquisas[i].Nota = uint(nota)
+		}
+	}
+}

@@ -41,3 +41,24 @@ func ResponderPesquisa(c echo.Context) (err error) {
 
 	return c.JSON(http.StatusOK, "pesquisa respondida com sucesso!")
 }
+
+/************************************Implementação das funções acima. porém com utilizando o hash do id ao invez do id *********************************************************/
+
+func BuscarFormPesquisa_Hash(c echo.Context) (err error) {
+	id_hash := c.Param("id_hash") //recuperação do parametro da url "id_hash"
+
+	pesquisa := repository.BuscarPesquisaHash(id_hash)
+	return c.JSON(http.StatusOK, pesquisa)
+}
+
+// ResponderPesquisa: responde a pesquisa com uma nota
+func ResponderPesquisa_Hash(c echo.Context) (err error) {
+	idPesquisa := c.Param("id_hash") //recuperação do parametro da url "id_hash"
+
+	var pesquisaBodyRequisicao model.Pesquisa
+	c.Bind(&pesquisaBodyRequisicao)
+
+	repository.ResponderPesquisaHash(idPesquisa, uint64(pesquisaBodyRequisicao.Nota))
+
+	return c.JSON(http.StatusOK, "pesquisa respondida com sucesso!")
+}
