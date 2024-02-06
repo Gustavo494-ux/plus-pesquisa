@@ -11,6 +11,8 @@ import (
 func RotasPesquisa(e *echo.Echo) {
 	pesquisa := e.Group("/pesquisa") //Grupo de rotas da pesquisa
 
+	pesquisa.GET("/gerarLinks/:id", controller.GerarLinkComIdHash)
+
 	// Está rota não possui um middleware que impede seu processamento caso a pesquisa já esteja respondida
 	pesquisa.GET("/buscar/:id", controller.BuscarFormPesquisa)
 

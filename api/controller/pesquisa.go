@@ -42,6 +42,23 @@ func ResponderPesquisa(c echo.Context) (err error) {
 	return c.JSON(http.StatusOK, "pesquisa respondida com sucesso!")
 }
 
+func GerarLinkComIdHash(c echo.Context) (err error) {
+	idPesquisa, err := strconv.Atoi(c.Param("id")) //recuperação do parametro da url "id" e conversão dele para int
+	if err != nil {                                //tratamento de erro do go.
+		fmt.Println(err)
+		return c.JSON(http.StatusBadRequest, err.Error())
+	}
+
+	pesquisa := repository.BuscarPesquisa(uint64(idPesquisa))
+
+	links := map[string]string{
+		"Buscar Pesquisa":      fmt.Sprintf("http://localhost:8000/pesquisa/buscar/hash/%s", pesquisa.Id_Hash),
+		"Buscar Form Pesquisa": fmt.Sprintf("http://localhost:8000/pesquisa/responder/hash/%s", pesquisa.Id_Hash),
+	}
+
+	return c.JSON(http.StatusOK, links)
+}
+
 /************************************Implementação das funções acima. porém com utilizando o hash do id ao invez do id *********************************************************/
 
 func BuscarFormPesquisa_Hash(c echo.Context) (err error) {

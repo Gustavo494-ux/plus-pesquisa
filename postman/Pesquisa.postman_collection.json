@@ -7,12 +7,33 @@
 	},
 	"item": [
 		{
+			"name": "Gerar Links com id hash",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/pesquisa/gerarLinks/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"pesquisa",
+						"gerarLinks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "BuscarPesquisa",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8000/pesquisa/buscar/responder/1",
+					"raw": "http://localhost:8000/pesquisa/buscar/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -21,7 +42,6 @@
 					"path": [
 						"pesquisa",
 						"buscar",
-						"responder",
 						"1"
 					]
 				}
